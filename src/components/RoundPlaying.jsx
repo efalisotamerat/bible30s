@@ -1,14 +1,21 @@
-export default function RoundPlaying({ currentTeam, timeLeft, words }) {
+import { t } from '../translations.js'
+
+export default function RoundPlaying({ currentTeam, currentPlayer, timeLeft, words, language }) {
   return (
     <div className="text-center">
       <div className="mb-3 md:mb-6">
         <h2 className="text-sm md:text-xl font-bold text-indigo-900 mb-1 md:mb-2">
           {currentTeam?.name}'s Turn
         </h2>
+        {currentPlayer && (
+          <h3 className="text-xs md:text-lg font-semibold text-indigo-700 mb-1 md:mb-2">
+            {currentPlayer}
+          </h3>
+        )}
         <div className="text-4xl md:text-6xl font-bold text-indigo-600 mb-1 md:mb-2">
           {timeLeft}
         </div>
-        <div className="text-xs md:text-sm text-gray-500">seconds remaining</div>
+        <div className="text-xs md:text-sm text-gray-500">{t('secondsRemaining', language)}</div>
       </div>
 
       <div className="space-y-2 md:space-y-4 mb-4 md:mb-6">
@@ -25,7 +32,7 @@ export default function RoundPlaying({ currentTeam, timeLeft, words }) {
       </div>
 
       <p className="text-xs md:text-sm text-gray-500">
-        Describe all 5 words to your team. After 30 seconds, select which ones they guessed correctly.
+        {t('describeWords', language)}
       </p>
     </div>
   )
