@@ -256,7 +256,7 @@ function App() {
     const roundWords = shuffled.slice(0, 5)
     setCurrentRoundWords(roundWords)
     setSelectedCorrectWords([])
-    const initialTime = 15
+    const initialTime = 30
     setTimeLeft(initialTime)
     setTotalTime(initialTime)
     setGameState('playing')
